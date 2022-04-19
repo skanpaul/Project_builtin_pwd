@@ -6,7 +6,7 @@
 /*   By: ski <ski@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:59:47 by ski               #+#    #+#             */
-/*   Updated: 2022/04/19 14:52:37 by ski              ###   ########.fr       */
+/*   Updated: 2022/04/19 14:57:54 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int main (int argc, char **argv, char **envp)
 			break ;
 		
 		if (strcmp(new_line, "pwd") == SAME_STRING)
-		{
 			pwd_builtin();
-			printf("bien joue\n");		
-		}
 		
 		if (new_line)
 			free(new_line);

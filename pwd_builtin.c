@@ -6,23 +6,29 @@
 /*   By: ski <ski@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 14:38:31 by ski               #+#    #+#             */
-/*   Updated: 2022/04/19 14:50:45 by ski              ###   ########.fr       */
+/*   Updated: 2022/04/19 16:19:46 by ski              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-
 /* ************************************************************************** */
-void pwd_builtin(void)
+#define PWD_NO_ERROR	0
+#define PWD_ERROR		-1
+#define CWD_LEN			4096
+/* ************************************************************************** */
+int pwd_builtin(void)
 {
-	// char *path_name;
+	char	cwd_name[CWD_LEN];
 	
-	char cwd_name[1024];
-	
-	if (getcwd(cwd_name, 1024) == NULL)	
-		printf("FAUT GERER ERREUR: getcwd()\n");
+	if (getcwd(cwd_name, CWD_LEN) == NULL)	
+		return (PWD_ERROR);
 	else
-		printf("Current working directory: %s\n", cwd_name);
+	{
+		write(1, cwd_name, strlen(cwd_name));
+		write(1, "\n", 1);
+	}
+	
+	return (PWD_NO_ERROR);
 }
 
 /* ************************************************************************** */
